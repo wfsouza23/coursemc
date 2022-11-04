@@ -1,5 +1,6 @@
 package com.example.demo.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
@@ -18,7 +19,7 @@ public class Endereco implements Serializable {
     private String complemento;
     private String bairro;
     private String cep;
-    @JsonIgnore
+    @JsonBackReference
     @JoinColumn(name = "cliente_id")
     @ManyToOne
     private Cliente cliente;
