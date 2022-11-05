@@ -1,6 +1,8 @@
 package com.example.demo.domain;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
@@ -18,6 +20,7 @@ public class Endereco implements Serializable {
     private String bairro;
     private String cep;
 
+    @JsonIgnore
     @JoinColumn(name = "cliente_id")
     @ManyToOne
     private Cliente cliente;
