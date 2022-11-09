@@ -1,18 +1,22 @@
 package com.example.demo.resources.exceptions;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 public class StandardError implements Serializable {
     private static final long serialVersionUID = 1l;
 
     private Integer status;
     private String msg;
-    private Long timeStamp;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm:ss")
+    private LocalDateTime timeStamp;
 
     public StandardError() {
     }
 
-    public StandardError(Integer status, String msg, Long timeStamp) {
+    public StandardError(Integer status, String msg, LocalDateTime timeStamp) {
         this.status = status;
         this.msg = msg;
         this.timeStamp = timeStamp;
@@ -34,11 +38,11 @@ public class StandardError implements Serializable {
         this.msg = msg;
     }
 
-    public Long getTimeStamp() {
+    public LocalDateTime getTimeStamp() {
         return timeStamp;
     }
 
-    public void setTimeStamp(Long timeStamp) {
+    public void setTimeStamp(LocalDateTime timeStamp) {
         this.timeStamp = timeStamp;
     }
 }
